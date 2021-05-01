@@ -34,3 +34,11 @@ print('Number of rows in original data = %d' % (df_new.shape[0]))
 
 df_new1 = df_new.dropna()
 print('Number of rows after removing missing values = %d' % (df_new1.shape[0]))
+
+
+#remove outlier
+%matplotlib inline
+
+df_new2 = df_new1.drop(['Sample_code_number'], axis=1)
+df_new2['Bare_Nuclei'] = pd.to_numeric(df_new2['Bare_Nuclei'])
+df_new2.boxplot(figsize=(20,3))
